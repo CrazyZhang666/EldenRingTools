@@ -1,0 +1,56 @@
+﻿<UserControl
+    x:Class="EldenRingTools.Views.CoopView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="500"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <StackPanel>
+        <hc:Divider Content="游戏位置" Style="{StaticResource DividerStyle_Title}" />
+        <DockPanel Margin="5">
+            <Button
+                Margin="5,0,0,0"
+                Content="选择"
+                DockPanel.Dock="Right" />
+            <TextBox hc:InfoElement.Placeholder="请选择 eldenring.exe 文件位置" Style="{StaticResource TextBoxExtend}" />
+        </DockPanel>
+
+        <hc:Divider Content="初始设置" Style="{StaticResource DividerStyle_Title}" />
+        <hc:UniformSpacingPanel Margin="5" Spacing="5">
+            <Button Content="释放游戏MOD" />
+            <Button Content="重置成就进度" />
+        </hc:UniformSpacingPanel>
+
+        <hc:Divider Content="联机设置" Style="{StaticResource DividerStyle_Title}" />
+        <UniformGrid Margin="5" Columns="3">
+            <TextBox
+                hc:InfoElement.Placeholder="请输入游戏名称，建议英文或数字"
+                hc:InfoElement.Title="游戏昵称"
+                Style="{StaticResource TextBoxExtend}" />
+            <TextBox
+                Margin="5,0,5,0"
+                hc:InfoElement.Placeholder="请输入SteamID，共17位数字"
+                hc:InfoElement.Title="SteamID"
+                Style="{StaticResource TextBoxExtend}" />
+            <TextBox
+                hc:InfoElement.Placeholder="请输入联机密码，不建议太长"
+                hc:InfoElement.Title="联机密码"
+                Style="{StaticResource TextBoxExtend}" />
+        </UniformGrid>
+
+        <hc:Divider Content="相关目录" Style="{StaticResource DividerStyle_Title}" />
+        <hc:UniformSpacingPanel Margin="5" Spacing="5">
+            <Button Content="打开游戏目录" />
+            <Button Content="打开mod目录" />
+            <Button Content="打开mods目录" />
+            <Button Content="打开存档目录" />
+            <Button Content="打开Steam模拟器目录" />
+        </hc:UniformSpacingPanel>
+
+    </StackPanel>
+
+</UserControl>

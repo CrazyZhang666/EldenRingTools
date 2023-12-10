@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <UseWPF>true</UseWPF>
+        <Platforms>x64</Platforms>
+        <StartupObject>EldenRingTools.App</StartupObject>
+        <ApplicationIcon>Assets\Icon\Favicon.ico</ApplicationIcon>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <DebugType>full</DebugType>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <None Remove="Assets\Images\EldenRingLogo.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Resource Include="Assets\Icon\Favicon.ico" />
+        <Resource Include="Assets\Images\EldenRingLogo.png" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Files\ModData.zip" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+        <PackageReference Include="HandyControl" Version="3.4.0" />
+    </ItemGroup>
+
+</Project>

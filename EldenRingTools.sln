@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EldenRingTools", "EldenRingTools\EldenRingTools.csproj", "{9DDFA0DE-FFD7-4165-835C-D1BA876AD0CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DDFA0DE-FFD7-4165-835C-D1BA876AD0CC}.Debug|x64.ActiveCfg = Debug|x64
+		{9DDFA0DE-FFD7-4165-835C-D1BA876AD0CC}.Debug|x64.Build.0 = Debug|x64
+		{9DDFA0DE-FFD7-4165-835C-D1BA876AD0CC}.Release|x64.ActiveCfg = Release|x64
+		{9DDFA0DE-FFD7-4165-835C-D1BA876AD0CC}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4626355A-3D83-4D41-A32D-0DD6BA9892A5}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿<UserControl
+    x:Class="EldenRingTools.Views.PlayView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <Grid Background="#0D3636">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image
+                Height="160"
+                Margin="20,0,20,20"
+                Source="/Assets/Images/EldenRingLogo.png"
+                Stretch="Uniform" />
+            <hc:UniformSpacingPanel
+                Width="160"
+                HorizontalAlignment="Center"
+                Orientation="Vertical"
+                Spacing="5">
+                <Button Background="#C19D53" Content="启动游戏" />
+                <Button Content="敬请期待" IsEnabled="False" />
+                <Button Content="敬请期待" IsEnabled="False" />
+                <Button Content="敬请期待" IsEnabled="False" />
+            </hc:UniformSpacingPanel>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

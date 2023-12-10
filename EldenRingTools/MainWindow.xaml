@@ -1,0 +1,39 @@
+﻿<hc:Window
+    x:Class="EldenRingTools.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:EldenRingTools.Views"
+    x:Name="Window_Main"
+    Title="Elden Ring 工具箱 - 支持1.10版本"
+    Width="800"
+    Height="500"
+    Background="White"
+    Closing="Window_Main_Closing"
+    Icon="/Assets/Icon/Favicon.ico"
+    Loaded="Window_Main_Loaded"
+    ResizeMode="CanMinimize"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+
+    <TabControl
+        Margin="5"
+        Style="{StaticResource TabControlBaseStyle}"
+        TabStripPlacement="Top">
+        <TabItem Header="开始游戏">
+            <view:PlayView />
+        </TabItem>
+        <TabItem Header="联机设置">
+            <view:CoopView />
+        </TabItem>
+        <TabItem Header="其他选项">
+            <view:OtherView />
+        </TabItem>
+        <TabItem Header="关于程序">
+            <view:AboutView />
+        </TabItem>
+    </TabControl>
+
+</hc:Window>
