@@ -14,60 +14,123 @@
         <vm:CoopViewModel />
     </UserControl.DataContext>
 
-    <StackPanel>
-        <hc:Divider Content="游戏位置" Style="{StaticResource DividerStyle_Title}" />
-        <DockPanel Margin="5">
-            <Button
-                Margin="5,0,0,0"
-                Command="{Binding GetGameExePathCommand}"
-                Content="选择"
-                DockPanel.Dock="Right" />
-            <TextBox
-                hc:InfoElement.Placeholder="请选择 eldenring.exe 文件位置"
-                IsReadOnly="True"
-                Style="{StaticResource TextBoxExtend}"
-                Text="{Binding GameExePath}" />
-        </DockPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--  主面板  -->
+        <StackPanel>
+            <hc:Divider Content="游戏位置" Style="{StaticResource DividerStyle_Title}" />
+            <DockPanel Margin="5">
+                <Button
+                    Margin="5,0,0,0"
+                    Command="{Binding GetGameExePathCommand}"
+                    Content="选择"
+                    DockPanel.Dock="Right" />
+                <TextBox
+                    hc:InfoElement.Placeholder="请选择 eldenring.exe 文件位置"
+                    IsReadOnly="True"
+                    Style="{StaticResource TextBoxExtend}"
+                    Text="{Binding GameExePath}" />
+            </DockPanel>
 
-        <hc:Divider Content="初始设置" Style="{StaticResource DividerStyle_Title}" />
-        <hc:UniformSpacingPanel Margin="5" Spacing="5">
-            <Button Content="释放无缝联机补丁" />
+            <hc:Divider Content="核心选项" Style="{StaticResource DividerStyle_Title}" />
+            <hc:UniformSpacingPanel
+                Margin="5"
+                ChildWrapping="Wrap"
+                Spacing="5">
+                <CheckBox
+                    Content="Dll加载器 (必装)"
+                    IsChecked="True"
+                    IsEnabled="False" />
+                <CheckBox x:Name="CheckBox_UseSlessCoop" Content="无缝联机补丁" />
+                <CheckBox Content="Mod引擎2" />
+            </hc:UniformSpacingPanel>
+
+            <hc:Divider Content="Steam模拟器" Style="{StaticResource DividerStyle_Title}" />
+            <hc:UniformSpacingPanel
+                Margin="5"
+                ChildWrapping="Wrap"
+                Spacing="5">
+                <RadioButton
+                    x:Name="RadioButton_SteamApi64WithOverlay"
+                    Content="steam__api64.dll 有Overlay"
+                    GroupName="steam_api64"
+                    IsChecked="True"
+                    IsEnabled="{Binding ElementName=CheckBox_UseSlessCoop, Path=IsChecked}" />
+                <RadioButton
+                    x:Name="RadioButton_SteamApi64NoOverlay"
+                    Content="steam__api64.dll 无Overlay"
+                    GroupName="steam_api64"
+                    IsEnabled="{Binding ElementName=CheckBox_UseSlessCoop, Path=IsChecked}" />
+                <CheckBox Content="成就解锁 (仅 Overlay 有效)" IsEnabled="{Binding ElementName=RadioButton_SteamApi64WithOverlay, Path=IsChecked}" />
+            </hc:UniformSpacingPanel>
+
+            <hc:Divider Content="可选Mod" Style="{StaticResource DividerStyle_Title}" />
+            <UniformGrid Margin="5" Columns="4">
+                <CheckBox Content="Fov调整" />
+                <CheckBox Content="死亡不掉卢恩" />
+                <CheckBox Content="相机修复" />
+                <CheckBox Content="增加动画距离" />
+                <CheckBox Content="暂停游戏" />
+                <CheckBox Content="修复超宽屏幕黑边" />
+                <CheckBox Content="移除色差" />
+                <CheckBox Content="移除晕影滤镜" />
+                <CheckBox Content="跳过开头动画" />
+                <CheckBox Content="解锁帧数" />
+            </UniformGrid>
+
+            <hc:Divider Content="联机设置" Style="{StaticResource DividerStyle_Title}" />
+            <UniformGrid Margin="5" Columns="3">
+                <StackPanel>
+                    <TextBox
+                        hc:InfoElement.Placeholder="请输入游戏名称，建议英文或数字"
+                        hc:InfoElement.Title="游戏昵称"
+                        Style="{StaticResource TextBoxExtend}"
+                        Text="{Binding CoopAccountName}" />
+                    <WrapPanel Margin="0,5,0,0" HorizontalAlignment="Right">
+                        <Button Content="随机昵称" />
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox
+                        Margin="5,0,5,0"
+                        hc:InfoElement.Placeholder="请输入Steam64ID，共17位数字"
+                        hc:InfoElement.Title="Steam64ID"
+                        Style="{StaticResource TextBoxExtend}"
+                        Text="{Binding CoopSteam64Id}" />
+                    <WrapPanel Margin="5,5,5,0" HorizontalAlignment="Right">
+                        <TextBlock Margin="5" VerticalAlignment="Center">
+                            <Hyperlink NavigateUri="https://steamdb.info/calculator/">SteamID查询</Hyperlink>
+                        </TextBlock>
+                        <Button Content="随机ID" />
+                    </WrapPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox
+                        hc:InfoElement.Placeholder="请输入联机密码，建议英文或数字"
+                        hc:InfoElement.Title="联机密码"
+                        Style="{StaticResource TextBoxExtend}"
+                        Text="{Binding CoopPassword}" />
+                    <WrapPanel Margin="0,5,0,0" HorizontalAlignment="Right">
+                        <Button Content="随机密码" />
+                    </WrapPanel>
+                </StackPanel>
+            </UniformGrid>
+            <UniformGrid Margin="5,0,5,0" Columns="3">
+                <StackPanel Orientation="Horizontal" />
+            </UniformGrid>
+
+        </StackPanel>
+        <!--  操作区域  -->
+        <hc:UniformSpacingPanel
+            Grid.Row="1"
+            Margin="5"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <Button Content="应用" />
         </hc:UniformSpacingPanel>
-
-        <hc:Divider Content="联机设置" Style="{StaticResource DividerStyle_Title}" />
-        <UniformGrid Margin="5" Columns="3">
-            <TextBox
-                hc:InfoElement.Placeholder="请输入游戏名称，建议英文或数字"
-                hc:InfoElement.Title="游戏昵称"
-                Style="{StaticResource TextBoxExtend}"
-                Text="{Binding CoopAccountName}" />
-            <TextBox
-                Margin="5,0,5,0"
-                hc:InfoElement.Placeholder="请输入SteamID，共17位数字"
-                hc:InfoElement.Title="SteamID"
-                Style="{StaticResource TextBoxExtend}"
-                Text="{Binding CoopSteamId}" />
-            <TextBox
-                hc:InfoElement.Placeholder="请输入联机密码，建议英文或数字"
-                hc:InfoElement.Title="联机密码"
-                Style="{StaticResource TextBoxExtend}"
-                Text="{Binding CoopPassword}" />
-        </UniformGrid>
-
-        <hc:Divider Content="相关目录" Style="{StaticResource DividerStyle_Title}" />
-        <hc:UniformSpacingPanel Margin="5" Spacing="5">
-            <Button Command="{Binding OpenGameDirCommand}" Content="打开游戏目录" />
-            <Button Command="{Binding OpenModDirCommand}" Content="打开mod目录" />
-            <Button Command="{Binding OpenModsDirCommand}" Content="打开mods目录" />
-            <Button Command="{Binding OpenArchiveDirCommand}" Content="打开存档目录" />
-            <Button Command="{Binding OpenSteamEmuDirCommand}" Content="打开SteamEmu目录" />
-        </hc:UniformSpacingPanel>
-
-        <hc:Divider Content="其他功能" Style="{StaticResource DividerStyle_Title}" />
-        <hc:UniformSpacingPanel Margin="5" Spacing="5">
-            <Button Content="重置成就进度" />
-        </hc:UniformSpacingPanel>
-
-    </StackPanel>
+    </Grid>
 
 </UserControl>

@@ -18,4 +18,12 @@
         <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
     </Style>
 
+    <Style BasedOn="{StaticResource CheckBoxBaseStyle}" TargetType="{x:Type CheckBox}">
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
+    <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="{x:Type RadioButton}">
+        <Setter Property="Margin" Value="5" />
+    </Style>
+
 </ResourceDictionary>

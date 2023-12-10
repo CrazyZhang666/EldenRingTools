@@ -2,8 +2,6 @@
 using CommunityToolkit.Mvvm.Input;
 using HandyControl.Controls;
 
-using EldenRingTools.Utils;
-
 namespace EldenRingTools.ViewModels;
 
 public partial class CoopViewModel : ObservableObject
@@ -22,7 +20,7 @@ public partial class CoopViewModel : ObservableObject
     /// 联机SteamId
     /// </summary>
     [ObservableProperty]
-    private string coopSteamId;
+    private string coopSteam64Id;
     /// <summary>
     /// 联机密码
     /// </summary>
@@ -69,85 +67,7 @@ public partial class CoopViewModel : ObservableObject
         }
 
         GameExePath = fileDialog.FileName;
+        Globals.GameExePath = GameExePath;
         Growl.Success("eldenring.exe 文件路径选择成功");
-    }
-
-    [RelayCommand]
-    private void OpenGameDir()
-    {
-        if (!File.Exists(GameExePath))
-        {
-            Growl.Warning("请选择 eldenring.exe 文件位置");
-            return;
-        }
-
-        var fileInfo = new FileInfo(GameExePath);
-        ProcessUtil.OpenLinkOrDir(fileInfo.DirectoryName);
-    }
-
-    [RelayCommand]
-    private void OpenModDir()
-    {
-        if (!File.Exists(GameExePath))
-        {
-            Growl.Warning("请选择 eldenring.exe 文件位置");
-            return;
-        }
-
-        var fileInfo = new FileInfo(GameExePath);
-        var tempDir = Path.Combine(fileInfo.DirectoryName, "mod");
-        if (!Directory.Exists(tempDir))
-        {
-            Growl.Warning("游戏目录 mod 文件夹不存在");
-            return;
-        }
-
-        ProcessUtil.OpenLinkOrDir(tempDir);
-    }
-
-    [RelayCommand]
-    private void OpenModsDir()
-    {
-        if (!File.Exists(GameExePath))
-        {
-            Growl.Warning("请选择 eldenring.exe 文件位置");
-            return;
-        }
-
-        var fileInfo = new FileInfo(GameExePath);
-        var tempDir = Path.Combine(fileInfo.DirectoryName, "mods");
-        if (!Directory.Exists(tempDir))
-        {
-            Growl.Warning("游戏目录 mods 文件夹不存在");
-            return;
-        }
-
-        ProcessUtil.OpenLinkOrDir(tempDir);
-    }
-
-    [RelayCommand]
-    private void OpenArchiveDir()
-    {
-        var tempDir = Path.Combine(FileUtil.Dir_ApplicationData, "EldenRing");
-        if (!Directory.Exists(tempDir))
-        {
-            Growl.Warning("Elden Ring 存档文件夹不存在");
-            return;
-        }
-
-        ProcessUtil.OpenLinkOrDir(tempDir);
-    }
-
-    [RelayCommand]
-    private void OpenSteamEmuDir()
-    {
-        var tempDir = Path.Combine(FileUtil.Dir_ApplicationData, "Goldberg SteamEmu Saves");
-        if (!Directory.Exists(tempDir))
-        {
-            Growl.Warning("SteamEmu 文件夹不存在");
-            return;
-        }
-
-        ProcessUtil.OpenLinkOrDir(tempDir);
     }
 }

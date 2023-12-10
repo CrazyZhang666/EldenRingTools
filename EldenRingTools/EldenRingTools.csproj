@@ -20,20 +20,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Files\Cdx\Codex.zip" />
-      <None Remove="Files\Mod\regulation.bin" />
-    </ItemGroup>
-
-    <ItemGroup>
         <Resource Include="Assets\Icon\Favicon.ico" />
         <Resource Include="Assets\Images\EldenRingLogo.png" />
     </ItemGroup>
 
     <ItemGroup>
         <EmbeddedResource Include="Files\Cdx\Codex.zip" />
-        <EmbeddedResource Include="Files\Dlls\steam_api64.dll.no.overlay" />
-        <EmbeddedResource Include="Files\Dlls\steam_api64.dll.overlay" />
-        <EmbeddedResource Include="Files\Dlls\steam_api64.dll.steam" />
+        <EmbeddedResource Include="Files\Emu\steam_api64.dll.no.overlay" />
+        <EmbeddedResource Include="Files\Emu\steam_api64.dll.overlay" />
+        <EmbeddedResource Include="Files\Steam\steam_api64.dll" />
         <EmbeddedResource Include="Files\ModEngine2.zip" />
         <EmbeddedResource Include="Files\ModLoader.zip" />
         <EmbeddedResource Include="Files\Mods\AdjustTheFov.zip" />
@@ -47,7 +42,7 @@
         <EmbeddedResource Include="Files\Coop\SeamlessDll.zip" />
         <EmbeddedResource Include="Files\Mods\SkipTheIntro.zip" />
         <EmbeddedResource Include="Files\Mods\UnlockTheFps.zip" />
-        <EmbeddedResource Include="Files\Coop\SeamlessDir.zip" />
+        <EmbeddedResource Include="Files\Coop\Seamless.zip" />
         <EmbeddedResource Include="Files\Mod\regulation.bin" />
         <EmbeddedResource Include="Files\SteamEmu.zip" />
     </ItemGroup>
