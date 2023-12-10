@@ -20,11 +20,23 @@
                 Width="160"
                 HorizontalAlignment="Center"
                 Orientation="Vertical"
-                Spacing="5">
-                <Button Background="#C19D53" Content="启动游戏" />
-                <Button Content="敬请期待" IsEnabled="False" />
-                <Button Content="敬请期待" IsEnabled="False" />
-                <Button Content="敬请期待" IsEnabled="False" />
+                Spacing="7">
+                <Button Background="#C19D53" Content="开始新游戏" />
+                <Button
+                    Content="系统配置"
+                    Foreground="White"
+                    IsEnabled="False"
+                    Style="{StaticResource ButtonDashed}" />
+                <Button
+                    Content="信息"
+                    Foreground="White"
+                    IsEnabled="False"
+                    Style="{StaticResource ButtonDashed}" />
+                <Button
+                    Content="结束游戏"
+                    Foreground="White"
+                    IsEnabled="False"
+                    Style="{StaticResource ButtonDashed}" />
             </hc:UniformSpacingPanel>
         </StackPanel>
     </Grid>
