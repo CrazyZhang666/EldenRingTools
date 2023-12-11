@@ -9,7 +9,7 @@
     x:Name="Window_Main"
     Title="Elden Ring 工具箱 - 支持1.10版本"
     Width="800"
-    Height="550"
+    Height="500"
     Background="White"
     Closing="Window_Main_Closing"
     Icon="/Assets/Icon/Favicon.ico"

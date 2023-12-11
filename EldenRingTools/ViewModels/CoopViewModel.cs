@@ -6,24 +6,44 @@ namespace EldenRingTools.ViewModels;
 
 public partial class CoopViewModel : ObservableObject
 {
-    /// <summary>
-    /// 游戏主程序路径
-    /// </summary>
     [ObservableProperty]
     private string gameExePath;
-    /// <summary>
-    /// 联机用户昵称
-    /// </summary>
+
+    [ObservableProperty]
+    private bool useSeamlessCoop;
+    [ObservableProperty]
+    private bool useModEngine2;
+
+    [ObservableProperty]
+    private bool useSteamEmuWithOverlay;
+    [ObservableProperty]
+    private bool useSteamEmuAchievement;
+
+    [ObservableProperty]
+    private bool useModAdjustTheFov;
+    [ObservableProperty]
+    private bool useModDisableRuneLoss;
+    [ObservableProperty]
+    private bool useModFixTheCamera;
+    [ObservableProperty]
+    private bool useModIncreaseAnimationDistance;
+    [ObservableProperty]
+    private bool useModPauseTheGame;
+    [ObservableProperty]
+    private bool useModRemoveBlackBars;
+    [ObservableProperty]
+    private bool useModRemoveChromaticAberration;
+    [ObservableProperty]
+    private bool useModRemoveVignette;
+    [ObservableProperty]
+    private bool useModSkipTheIntro;
+    [ObservableProperty]
+    private bool useModUnlockTheFps;
+
     [ObservableProperty]
     private string coopAccountName;
-    /// <summary>
-    /// 联机SteamId
-    /// </summary>
     [ObservableProperty]
     private string coopSteam64Id;
-    /// <summary>
-    /// 联机密码
-    /// </summary>
     [ObservableProperty]
     private string coopPassword;
 
@@ -69,5 +89,14 @@ public partial class CoopViewModel : ObservableObject
         GameExePath = fileDialog.FileName;
         Globals.GameExePath = GameExePath;
         Growl.Success("eldenring.exe 文件路径选择成功");
+    }
+
+    /// <summary>
+    /// 应用设置
+    /// </summary>
+    [RelayCommand]
+    private void ApplySetting()
+    {
+
     }
 }
